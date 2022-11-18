@@ -1,6 +1,6 @@
 # Add a line in Dockerfile with base image
 # syntax=docker/dockerfile:1
-FROM node:16.15.0
+FROM node as build
 
 # The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile.
 # Create a working directory.
@@ -37,4 +37,4 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # The COPY instruction copies new files or directories from <src> and adds them to the filesystem of the container at the path <dest>.
 # Copy app files into /usr/share/nginx/html
-COPY --from=build /app/cbwa_ca2/cbwa_ca2/www/ /usr/share/nginx/html/
+COPY --from=build /app/mobdev_ca3-main/www/ /usr/share/nginx/html/
